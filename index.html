@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SheetBound — Printable TTRPG Character Sheets</title>
+  <meta name="description" content="Printable character sheets for d20, old-school and freeform tabletop RPGs. Fill in minutes, print perfectly on A4 or US Letter. Free, no signup, works offline.">
+  <meta name="theme-color" content="#7c2d12">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar no-print">
+    <a class="brand" href="./">
+      <img src="assets/icon.svg" alt="" width="28" height="28">
+      <span>SheetBound</span>
+    </a>
+    <p class="tagline" data-i18n="app.tagline"></p>
+    <div class="topbar-actions">
+      <label class="visually-hidden" for="lang-select">Language</label>
+      <select id="lang-select" aria-label="Language">
+        <option value="en">English</option>
+        <option value="pt-BR">Português (BR)</option>
+      </select>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero no-print">
+      <h1 data-i18n="hero.title"></h1>
+      <p data-i18n="hero.sub"></p>
+      <div class="system-picker" role="group" aria-label="System">
+        <button class="sys-btn is-active" data-system="d20" type="button">
+          <strong data-i18n="system.d20.name"></strong>
+          <small data-i18n="system.d20.desc"></small>
+        </button>
+        <button class="sys-btn" data-system="osr" type="button">
+          <strong data-i18n="system.osr.name"></strong>
+          <small data-i18n="system.osr.desc"></small>
+        </button>
+        <button class="sys-btn" data-system="freeform" type="button">
+          <strong data-i18n="system.freeform.name"></strong>
+          <small data-i18n="system.freeform.desc"></small>
+        </button>
+      </div>
+      <div class="hero-actions">
+        <button id="btn-roll" class="btn btn-primary" type="button" data-i18n="actions.rollScores"></button>
+        <button id="btn-roll3d6" class="btn hidden osr-only" type="button" data-i18n="actions.roll3d6"></button>
+        <button id="btn-demo" class="btn" type="button" data-i18n="actions.autofill"></button>
+        <button id="btn-print" class="btn btn-accent" type="button" data-i18n="actions.print"></button>
+      </div>
+    </section>
+
+    <div class="layout">
+      <!-- ============ EDITOR ============ -->
+      <section class="editor no-print" aria-label="Editor">
+        <fieldset>
+          <legend data-i18n="form.legend"></legend>
+          <div class="grid-2">
+            <label><span data-i18n="field.name"></span><input id="f-name" type="text" autocomplete="off"></label>
+            <label class="scored"><span data-i18n="field.class"></span><input id="f-class" type="text" autocomplete="off"></label>
+            <label class="scored"><span data-i18n="field.race"></span><input id="f-race" type="text" autocomplete="off"></label>
+            <label class="num scored"><span data-i18n="field.level"></span><input id="f-level" type="number" min="1" max="20" value="1"></label>
+            <label class="num scored"><span data-i18n="field.xp"></span><input id="f-xp" type="number" min="0" value="0"></label>
+            <label class="num scored"><span data-i18n="field.hp"></span><input id="f-hp" type="number" min="1" value="10"></label>
+            <label class="num scored"><span data-i18n="field.ac"></span><input id="f-ac" type="number" min="0" value="10"></label>
+          </div>
+        </fieldset>
+
+        <fieldset id="fs-abilities">
+          <legend data-i18n="abilities.title"></legend>
+          <div class="ability-grid" id="ability-grid"><!-- built by app.js --></div>
+          <dl class="derived">
+            <div class="d20-only"><dt data-i18n="derived.proficiency"></dt><dd id="d-prof">+2</dd></div>
+            <div class="d20-only"><dt data-i18n="derived.passivePerception"></dt><dd id="d-pp">10</dd></div>
+            <div class="scored"><dt data-i18n="derived.carryingCapacity"></dt><dd id="d-cap">150 lb</dd></div>
+          </dl>
+        </fieldset>
+
+        <fieldset class="d20-only" id="fs-saves-skills">
+          <legend data-i18n="saves.title"></legend>
+          <div class="chip-row" id="saves-row"><!-- built --></div>
+          <legend style="margin-top:.75rem" data-i18n="skills.title"></legend>
+          <div class="chip-row" id="skills-row"><!-- built --></div>
+        </fieldset>
+
+        <fieldset class="scored" id="fs-gear">
+          <legend data-i18n="gear.title"></legend>
+          <table class="gear-table">
+            <thead>
+              <tr>
+                <th scope="col" data-i18n="gear.item"></th>
+                <th scope="col" class="num" data-i18n="gear.qty"></th>
+                <th scope="col" class="num" data-i18n="gear.weight"></th>
+                <th scope="col"><span class="visually-hidden">Remove</span></th>
+              </tr>
+            </thead>
+            <tbody id="gear-body"><!-- built --></tbody>
+          </table>
+          <div class="row-between">
+            <button id="btn-add-gear" class="btn btn-small" type="button" data-i18n="gear.add"></button>
+            <output id="gear-total"></output>
+          </div>
+        </fieldset>
+
+        <fieldset id="fs-notes">
+          <legend data-i18n="traits.title"></legend>
+          <label><span data-i18n="notes.appearance"></span><textarea id="n-appearance" rows="2"></textarea></label>
+          <label><span data-i18n="notes.bond"></span><textarea id="n-bond" rows="2"></textarea></label>
+          <label><span data-i18n="notes.flaw"></span><textarea id="n-flaw" rows="2"></textarea></label>
+        </fieldset>
+
+        <div class="io-row">
+          <button id="btn-export" class="btn" type="button" data-i18n="actions.exportJson"></button>
+          <label class="btn" for="import-file" data-i18n="actions.importJson"></label>
+          <input id="import-file" type="file" accept="application/json,.json" class="visually-hidden">
+        </div>
+        <p id="status" role="status" aria-live="polite"></p>
+      </section>
+
+      <!-- ============ PREVIEW (print target) ============ -->
+      <section class="preview" aria-label="Sheet preview">
+        <article class="sheet" id="sheet">
+          <header class="sheet-head">
+            <div>
+              <h1 id="s-name">—</h1>
+              <p id="s-subline" class="muted">—</p>
+            </div>
+            <div class="pill-row">
+              <div class="pill"><small data-i18n="field.level"></small><b id="s-level">1</b></div>
+              <div class="pill"><small data-i18n="field.xp"></small><b id="s-xp">0</b></div>
+              <div class="pill"><small data-i18n="field.hp"></small><b id="s-hp">10</b></div>
+              <div class="pill"><small data-i18n="field.ac"></small><b id="s-ac">10</b></div>
+            </div>
+          </header>
+
+          <section class="sheet-abilities scored">
+            <div class="hex-row" id="s-abilities"></div>
+            <dl class="derived derived-print d20-only">
+              <div><dt data-i18n="derived.proficiency"></dt><dd id="sp-prof">+2</dd></div>
+              <div><dt data-i18n="derived.passivePerception"></dt><dd id="sp-pp">10</dd></div>
+            </dl>
+          </section>
+
+          <section class="d20-only sheet-saves-skills">
+            <div><h4 data-i18n="saves.title"></h4><ul class="tag-list" id="s-saves"></ul></div>
+            <div><h4 data-i18n="skills.title"></h4><ul class="tag-list" id="s-skills"></ul></div>
+          </section>
+
+          <section class="scored sheet-gear">
+            <table>
+              <thead><tr><th data-i18n="gear.item"></th><th class="num" data-i18n="gear.qty"></th><th class="num" data-i18n="gear.weight"></th></tr></thead>
+              <tbody id="s-gear"></tbody>
+            </table>
+          </section>
+
+          <section class="sheet-notes">
+            <div><h4 data-i18n="notes.appearance"></h4><p id="s-appearance"></p></div>
+            <div><h4 data-i18n="notes.bond"></h4><p id="s-bond"></p></div>
+            <div><h4 data-i18n="notes.flaw"></h4><p id="s-flaw"></p></div>
+          </section>
+
+          <footer class="sheet-foot">
+            <span data-i18n="print.footer"></span>
+          </footer>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer no-print">
+    <p><span data-i18n="footer.builtBy"></span> ·
+      <a href="https://github.com/chr-z/sheetbound" rel="noopener">GitHub</a> · MIT</p>
+  </footer>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

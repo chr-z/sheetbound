@@ -1,0 +1,16 @@
+{
+  "name": "SheetBound — Printable TTRPG Character Sheets",
+  "short_name": "SheetBound",
+  "description": "Printable character sheets for d20, old-school and freeform tabletop RPGs. Fill in minutes, print perfectly on A4 or US Letter. Free, no signup, PWA.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0f0b09",
+  "theme_color": "#7c2d12",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["games", "productivity", "utilities"],
+  "icons": [
+    { "src": "assets/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "assets/icon-maskable.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}

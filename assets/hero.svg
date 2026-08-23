@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#17110d"/>
+      <stop offset="1" stop-color="#0f0b09"/>
+    </linearGradient>
+    <linearGradient id="amber" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f59e0b"/>
+      <stop offset="1" stop-color="#d97706"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.75" cy="0.15" r="0.8">
+      <stop offset="0" stop-color="#d9770640"/>
+      <stop offset="1" stop-color="#00000000"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- faint d20 wireframe -->
+  <g stroke="#d9770622" stroke-width="2" fill="none" transform="translate(1015,140) scale(2.6)">
+    <polygon points="32,4 56,18 56,46 32,60 8,46 8,18"/>
+    <polyline points="8,18 32,30 56,18 M32,30 32,60 M8,46 32,30 56,46"/>
+  </g>
+
+  <!-- character sheet illustration -->
+  <g transform="translate(700,120) rotate(3)">
+    <rect width="380" height="420" rx="10" fill="#faf5eb"/>
+    <rect width="380" height="420" rx="10" fill="none" stroke="#cdbb9d" stroke-width="2"/>
+    <text x="28" y="58" font-family="Georgia, serif" font-size="26" font-weight="bold" fill="#241a12">Brissa Emberhand</text>
+    <line x1="24" y1="76" x2="356" y2="76" stroke="#b9a48a" stroke-width="3"/>
+    <g font-family="Segoe UI, sans-serif">
+      <!-- pills -->
+      <g>
+        <rect x="230" y="96" width="56" height="40" rx="8" fill="#efe5d2" stroke="#cdbb9d"/>
+        <text x="258" y="113" text-anchor="middle" font-size="9" fill="#8a7860">LEVEL</text>
+        <text x="258" y="130" text-anchor="middle" font-size="17" font-weight="bold" fill="#241a12">5</text>
+        <rect x="294" y="96" width="56" height="40" rx="8" fill="#efe5d2" stroke="#cdbb9d"/>
+        <text x="322" y="113" text-anchor="middle" font-size="9" fill="#8a7860">HP</text>
+        <text x="322" y="130" text-anchor="middle" font-size="17" font-weight="bold" fill="#241a12">28</text>
+      </g>
+      <!-- ability hexes -->
+      <g>
+        <g transform="translate(28,110)">
+          <rect width="52" height="62" rx="10" fill="#efe5d2" stroke="#cdbb9d"/>
+          <text x="26" y="30" text-anchor="middle" font-size="19" font-weight="bold" fill="#241a12">16</text>
+          <text x="26" y="44" text-anchor="middle" font-size="9" letter-spacing="2" fill="#8a7860">INT</text>
+          <text x="26" y="57" text-anchor="middle" font-size="11" font-weight="bold" fill="#b45309">+3</text>
+        </g>
+        <g transform="translate(88,110)">
+          <rect width="52" height="62" rx="10" fill="#efe5d2" stroke="#cdbb9d"/>
+          <text x="26" y="30" text-anchor="middle" font-size="19" font-weight="bold" fill="#241a12">14</text>
+          <text x="26" y="44" text-anchor="middle" font-size="9" letter-spacing="2" fill="#8a7860">DEX</text>
+          <text x="26" y="57" text-anchor="middle" font-size="11" font-weight="bold" fill="#b45309">+2</text>
+        </g>
+        <g transform="translate(148,110)">
+          <rect width="52" height="62" rx="10" fill="#efe5d2" stroke="#cdbb9d"/>
+          <text x="26" y="30" text-anchor="middle" font-size="19" font-weight="bold" fill="#241a12">12</text>
+          <text x="26" y="44" text-anchor="middle" font-size="9" letter-spacing="2" fill="#8a7860">CON</text>
+          <text x="26" y="57" text-anchor="middle" font-size="11" font-weight="bold" fill="#b45309">+1</text>
+        </g>
+      </g>
+      <!-- skill tags -->
+      <g fill="#f3ead9" stroke="#d8c9ac">
+        <rect x="28" y="196" width="104" height="22" rx="11"/>
+        <rect x="140" y="196" width="128" height="22" rx="11"/>
+        <rect x="28" y="228" width="92" height="22" rx="11"/>
+      </g>
+      <g font-size="11" fill="#5c4c38">
+        <text x="80" y="211" text-anchor="middle">Arcana (INT)</text>
+        <text x="204" y="211" text-anchor="middle">Investigation (INT)</text>
+        <text x="74" y="243" text-anchor="middle">Insight (WIS)</text>
+      </g>
+      <!-- gear lines -->
+      <g stroke="#d8c9ac" stroke-dasharray="2 4">
+        <line x1="28" y1="280" x2="352" y2="280"/>
+        <line x1="28" y1="306" x2="352" y2="306"/>
+        <line x1="28" y1="332" x2="290" y2="332"/>
+      </g>
+      <text x="28" y="272" font-size="10" letter-spacing="2" fill="#8a7860">EQUIPMENT</text>
+      <g font-size="13" fill="#42372a">
+        <text x="28" y="284">Quarterstaff · Spellbook · Rope (50 ft)</text>
+      </g>
+      <text x="190" y="396" text-anchor="middle" font-size="11" fill="#8a7860">SheetBound — printable character sheets</text>
+    </g>
+  </g>
+
+  <!-- headline -->
+  <g font-family="Segoe UI, sans-serif">
+    <text x="64" y="200" font-size="64" font-weight="800" fill="#f3e9dc" letter-spacing="-1">Character sheets</text>
+    <text x="64" y="278" font-size="64" font-weight="800" fill="url(#amber)" letter-spacing="-1">that print beautifully.</text>
+    <text x="64" y="330" font-size="24" fill="#a8977f">d20 · old-school · freeform — A4 &amp; US Letter ready</text>
+
+    <!-- feature chips -->
+    <g font-size="17" font-weight="600">
+      <rect x="64" y="372" width="176" height="42" rx="21" fill="none" stroke="#d9770688" stroke-width="2"/>
+      <text x="152" y="399" text-anchor="middle" fill="#f59e0b">Print-perfect</text>
+      <rect x="256" y="372" width="150" height="42" rx="21" fill="none" stroke="#05966988" stroke-width="2"/>
+      <text x="331" y="399" text-anchor="middle" fill="#34d399">Works offline</text>
+      <rect x="422" y="372" width="150" height="42" rx="21" fill="none" stroke="#8b5cf688" stroke-width="2"/>
+      <text x="497" y="399" text-anchor="middle" fill="#c4b5fd">EN · PT-BR</text>
+    </g>
+
+    <text x="64" y="500" font-size="20" fill="#6b5c48">Free &amp; open source — no signup, no ads, no server.</text>
+    <text x="64" y="566" font-size="22" font-weight="700" fill="#a8977f">chr-z.github.io/sheetbound</text>
+  </g>
+</svg>

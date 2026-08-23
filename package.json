@@ -1,0 +1,13 @@
+{
+  "name": "sheetbound",
+  "version": "1.0.0",
+  "description": "Printable TTRPG character sheets — d20, old-school & freeform systems, print-perfect A4/Letter output. Free, no signup, PWA, i18n.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "serve": "npx --yes http-server -p 8080 -c-1 ."
+  },
+  "keywords": ["ttrpg", "character-sheet", "dnd", "osr", "printable", "pwa", "i18n"],
+  "author": "chr-z",
+  "license": "MIT"
+}
